@@ -6,7 +6,6 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 import { GiStairs } from "react-icons/gi";
 import { GiTigerHead } from "react-icons/gi";
 import { GiMonkey } from "react-icons/gi";
-import { TbStairsUp } from "react-icons/tb";
 
 interface Party {
     id: number;
@@ -49,7 +48,7 @@ export default function PartyList() {
             }
         }
         fetchParties();
-    }, []);
+    }, [currentTime]);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -108,7 +107,7 @@ export default function PartyList() {
 
                     {room3.party ? (
                         <>
-                            Room 3 <br /> {room3.party.childName}'s Party <br />
+                            Room 3 <br /> {room3.party.childName}’s Party <br />
                             {room3.party.time} - {room3.party.endTime}
                         </>
                     ) : (
@@ -125,7 +124,7 @@ export default function PartyList() {
 
                     {room5.party ? (
                         <>
-                            Room 5 <br /> {room5.party.childName}'s Party <br />
+                            Room 5 <br /> {room5.party.childName}’s Party <br />
                             {room5.party.time} - {room5.party.endTime}
                         </>
                     ) : (
@@ -148,7 +147,7 @@ export default function PartyList() {
                     </div>
                     {room1.party ? (
                         <>
-                            Room 1 <br /> {room1.party.childName}'s Party <br />
+                            Room 1 <br /> {room1.party.childName}’s Party <br />
                             {room1.party.time} - {room1.party.endTime}
                         </>
                     ) : (
@@ -164,7 +163,7 @@ export default function PartyList() {
                     </div>
                     {room2.party ? (
                         <>
-                            Room 2 <br /> {room2.party.childName}'s Party <br />
+                            Room 2 <br /> {room2.party.childName}’s Party <br />
                             {room2.party.time} - {room2.party.endTime}
                         </>
                     ) : (
@@ -181,7 +180,7 @@ export default function PartyList() {
 
                     {room4.party ? (
                         <>
-                            Room 4 <br /> {room4.party.childName}'s Party <br />
+                            Room 4 <br /> {room4.party.childName}’s Party <br />
                             {room4.party.time} - {room4.party.endTime}
                         </>
                     ) : (
