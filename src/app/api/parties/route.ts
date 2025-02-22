@@ -1,3 +1,27 @@
+interface AcuityAppointment {
+    id: number;
+    date: string;
+    time: string;
+    endTime: string;
+    datetime: string;
+    calendar?: string;
+    forms: Array<{
+        values: Array<{
+            value: string;
+        }>;
+    }>;
+}
+
+interface Party {
+    id: number;
+    date: string;
+    time: string;
+    endTime: string;
+    datetime: string;
+    childName: string;
+    room: string;
+}
+
 export async function GET(request: Request): Promise<Response> {
     try {
         const { searchParams } = new URL(request.url);
@@ -18,32 +42,37 @@ export async function GET(request: Request): Promise<Response> {
 
         const appointments = await response.json();
 
-        const parties = (appointments as any[]).map((appointment) => {
-            let partyRoom = "";
+        const parties: Party[] = appointments.map(
+            (appointment: AcuityAppointment) => {
+                let partyRoom = "";
 
-            if (appointment.calendar) {
-                const roomNameArray = appointment.calendar.split(" ");
-                const roomIndex = roomNameArray.indexOf("Room");
-                if (roomIndex !== -1 && roomNameArray.length > roomIndex + 1) {
-                    partyRoom = roomNameArray[roomIndex + 1];
+                if (appointment.calendar) {
+                    const roomNameArray = appointment.calendar.split(" ");
+                    const roomIndex = roomNameArray.indexOf("Room");
+                    if (
+                        roomIndex !== -1 &&
+                        roomNameArray.length > roomIndex + 1
+                    ) {
+                        partyRoom = roomNameArray[roomIndex + 1];
+                    }
                 }
-            }
 
-            return {
-                id: appointment.id,
-                date: appointment.date,
-                time: appointment.time,
-                endTime: appointment.endTime,
-                datetime: appointment.datetime,
-                childName: appointment.forms[0].values[0].value.trim(),
-                room: partyRoom,
-            };
-        });
+                return {
+                    id: appointment.id,
+                    date: appointment.date,
+                    time: appointment.time,
+                    endTime: appointment.endTime,
+                    datetime: appointment.datetime,
+                    childName: appointment.forms[0].values[0].value.trim(),
+                    room: partyRoom,
+                };
+            }
+        );
         return new Response(JSON.stringify({ parties }), {
             status: 200,
             headers: { "Content-Type": "application/json" },
         });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error fetching Acuity data:", error);
         return new Response(
             JSON.stringify({ error: "Internal Server Error" }),
