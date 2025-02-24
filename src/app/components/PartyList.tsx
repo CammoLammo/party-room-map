@@ -90,7 +90,7 @@ export default function PartyList() {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className="min-h-screen grid grid-cols-2 font-bold text-2xl text-center text-wrap">
+        <div className="min-h-screen grid grid-cols-2 font-bold text-2xl text-center text-wrap bg-black text-white">
             <div className="flex flex-row col-span-2 text-4xl">
                 <div className="flex items-center justify-center m-4 p-2 rounded-lg w-full">
                     <FaArrowAltCircleLeft size={50} />
