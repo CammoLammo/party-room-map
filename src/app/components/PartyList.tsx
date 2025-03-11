@@ -103,7 +103,7 @@ export default function PartyList() {
             </div>
             {/* Left column for Room 3 and Room 5 */}
             <div className="flex flex-col justify-center items-center pl-4 pr-2">
-                <div className="bg-yellow-700 m-4 p-4 rounded-lg flex items-center justify-evenly w-full">
+                <div className="bg-background_room3 m-4 p-4 rounded-lg flex items-center justify-evenly w-full">
                     <div className="flex flex-col items-center justify-center pr-20 pl-10">
                         <GiStairs size={100} />
                         <p>Upstairs</p>
@@ -120,7 +120,7 @@ export default function PartyList() {
                         </>
                     )}
                 </div>
-                <div className="bg-yellow-700 m-4 p-4 rounded-lg flex items-center justify-evenly w-full">
+                <div className="bg-background_room5 m-4 p-4 rounded-lg flex items-center justify-evenly w-full">
                     <div className="flex flex-col items-center justify-center pr-20 pl-10">
                         <GiMonkey size={100} />
                         <p>Monkey Door</p>
@@ -141,7 +141,7 @@ export default function PartyList() {
 
             {/* Right column for Room 1, 2, and 4 */}
             <div className="flex flex-col justify-evenly items-center pl-2 pr-4">
-                <div className="bg-green-700 m-4 p-4 rounded-lg flex items-center justify-evenly w-full">
+                <div className="bg-background_room1 m-4 p-4 rounded-lg flex items-center justify-evenly w-full">
                     <div className="flex flex-col items-center justify-center pr-20">
                         <div className="flex flex-row items-center justify-center">
                             <GiStairs size={100} />
@@ -160,7 +160,7 @@ export default function PartyList() {
                         </>
                     )}
                 </div>
-                <div className="bg-green-700 m-4 p-4 rounded-lg flex items-center justify-evenly w-full">
+                <div className="bg-background_room2 m-4 p-4 rounded-lg flex items-center justify-evenly w-full">
                     <div className="flex flex-col items-center justify-center pr-20">
                         <GiStairs size={100} />
                         <p className="text-xl">Upstairs then right</p>
@@ -176,7 +176,7 @@ export default function PartyList() {
                         </>
                     )}
                 </div>
-                <div className="bg-green-700 m-4 p-4 rounded-lg flex items-center justify-evenly w-full">
+                <div className="bg-background_room4 m-4 p-4 rounded-lg flex items-center justify-evenly w-full">
                     <div className="flex flex-col items-center justify-center pr-20">
                         <GiTigerHead size={100} />
                         <p>Tiger Door</p>
